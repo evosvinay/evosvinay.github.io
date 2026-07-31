@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinay Dewangan | Official Portfolio</title>
     <!-- Google Fonts & Font Awesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -28,59 +28,66 @@
             position: relative;
         }
 
-        /* Animated Background Glowing Orbs */
+        /* Ambient Glowing Background Orbs */
         .bg-glow {
             position: absolute;
-            width: 350px;
-            height: 350px;
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.15));
-            filter: blur(80px);
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(129, 140, 248, 0.18));
+            filter: blur(90px);
             border-radius: 50%;
             z-index: -1;
-            animation: floatGlow 8s ease-in-out infinite alternate;
+            animation: floatGlow 10s ease-in-out infinite alternate;
         }
 
         .bg-glow.two {
-            top: 10%;
-            right: 15%;
-            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(56, 189, 248, 0.1));
-            animation-duration: 12s;
+            top: 5%;
+            right: 10%;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.12), rgba(56, 189, 248, 0.12));
+            animation-duration: 14s;
         }
 
         @keyframes floatGlow {
             0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-40px) scale(1.1); }
+            100% { transform: translateY(-50px) scale(1.15); }
         }
 
-        /* Main Container Animation */
+        /* Main Container Entrance Animation */
         .container {
             width: 100%;
             max-width: 680px;
-            background: rgba(18, 24, 38, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(18, 24, 38, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 28px;
-            padding: 40px 32px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            border-radius: 30px;
+            padding: 42px 34px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            animation: containerEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
         }
 
-        @keyframes fadeInUp {
+        @keyframes containerEntrance {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
+        /* Staggered Animations for Elements */
         .header {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
         }
 
-        /* Animated Avatar Ring */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animated Avatar */
         .avatar-container {
             position: relative;
             width: 100px;
@@ -99,20 +106,20 @@
             font-size: 38px;
             font-weight: 700;
             color: #05050a;
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.45);
             position: relative;
             z-index: 2;
         }
 
         .avatar-ring {
             position: absolute;
-            top: -5px;
-            left: -5px;
-            right: -5px;
-            bottom: -5px;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
             border-radius: 50%;
-            border: 2px dashed rgba(56, 189, 248, 0.5);
-            animation: rotateRing 15s linear infinite;
+            border: 2px dashed rgba(56, 189, 248, 0.6);
+            animation: rotateRing 18s linear infinite;
         }
 
         @keyframes rotateRing {
@@ -120,7 +127,7 @@
         }
 
         h1 {
-            font-size: 2.1rem;
+            font-size: 2.15rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             background: linear-gradient(to right, #ffffff, #94a3b8);
@@ -146,6 +153,7 @@
             margin: 0 auto;
         }
 
+        /* Section Titles */
         .section-title {
             font-size: 0.82rem;
             text-transform: uppercase;
@@ -153,14 +161,16 @@
             color: #64748b;
             margin: 32px 0 16px 0;
             font-weight: 700;
+            animation: fadeIn 1s ease 0.4s both;
         }
 
-        /* Skills Badges with stagger animation */
+        /* Animated Skills Grid with Stagger */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
+            animation: fadeIn 1s ease 0.5s both;
         }
 
         .skill-badge {
@@ -173,31 +183,55 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: default;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-badge::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .skill-badge:hover {
-            background: rgba(56, 189, 248, 0.08);
-            border-color: rgba(56, 189, 248, 0.4);
+            background: rgba(56, 189, 248, 0.1);
+            border-color: rgba(56, 189, 248, 0.5);
             color: #38bdf8;
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.1);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(56, 189, 248, 0.2);
         }
 
-        /* Interactive Action Links */
+        .skill-badge:hover::after {
+            opacity: 1;
+        }
+
+        .skill-badge i {
+            transition: transform 0.3s ease;
+        }
+
+        .skill-badge:hover i {
+            transform: scale(1.2) rotate(8deg);
+        }
+
+        /* Animated Interactive Action Links */
         .links-container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-top: 24px;
+            gap: 14px;
+            margin-top: 16px;
+            animation: fadeIn 1s ease 0.6s both;
         }
 
         .link-card {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.06);
             padding: 16px 22px;
             border-radius: 16px;
@@ -205,7 +239,7 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
         }
@@ -217,8 +251,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.08), transparent);
-            transition: 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.12), transparent);
+            transition: 0.6s ease;
         }
 
         .link-card:hover::before {
@@ -226,11 +260,11 @@
         }
 
         .link-card:hover {
-            background: rgba(56, 189, 248, 0.08);
-            border-color: rgba(56, 189, 248, 0.35);
-            transform: translateY(-3px);
+            background: rgba(56, 189, 248, 0.09);
+            border-color: rgba(56, 189, 248, 0.4);
+            transform: translateY(-4px) scale(1.01);
             color: #38bdf8;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(56, 189, 248, 0.15);
         }
 
         .link-left {
@@ -240,17 +274,28 @@
         }
 
         .link-left i {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             width: 24px;
             text-align: center;
-        }
-
-        .link-card .fa-arrow-right {
             transition: transform 0.3s ease;
         }
 
+        .link-card:hover .link-left i {
+            transform: scale(1.15);
+        }
+
+        .link-card .fa-arrow-right {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
         .link-card:hover .fa-arrow-right {
-            transform: translateX(4px);
+            transform: translateX(6px);
+            color: #38bdf8;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         footer {
@@ -258,13 +303,14 @@
             margin-top: 36px;
             color: #475569;
             font-size: 0.8rem;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.03em;
+            animation: fadeIn 1s ease 0.7s both;
         }
     </style>
 </head>
 <body>
 
-    <!-- Background Animation Orbs -->
+    <!-- Ambient Glow Effects -->
     <div class="bg-glow"></div>
     <div class="bg-glow two"></div>
 
@@ -280,7 +326,7 @@
             <p class="bio">Passionate about building modern web apps, clean UI designs, and exploring cutting-edge technology. Welcome to my official portfolio.</p>
         </div>
 
-        <!-- Skills Section -->
+        <!-- Skills Section with Advanced Hover & Scale Animations -->
         <div class="section-title">Tech Stack & Skills</div>
         <div class="skills-grid">
             <div class="skill-badge"><i class="fab fa-html5" style="color: #e34f26;"></i> HTML5</div>
@@ -290,7 +336,7 @@
             <div class="skill-badge"><i class="fas fa-code"></i> Web Design</div>
         </div>
 
-        <!-- Links Section -->
+        <!-- Connect & Projects Section with Smooth Fluid Animations -->
         <div class="section-title">Connect & Projects</div>
         <div class="links-container">
             <a href="https://github.com/evosvinay" target="_blank" class="link-card">
